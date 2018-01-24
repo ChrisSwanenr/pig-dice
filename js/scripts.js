@@ -1,29 +1,44 @@
 $(document).ready(function() {
 
+var dieArray = [];
 var player1Result = [];
 var player2Result = [];
 var player1TurnScore = [];
 var player2TurnScore = [];
-var dieArray = [1,2,3,4,5,6]
+//var twentyDieArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+//var dieArray = [1,2,3,4,5,6]
 var roll = function() {
   return dieArray[Math.floor(Math.random()*dieArray.length)];
 };
 
+$("#start").click(function() {
+  var player1Name = $("input#player1Name").val();
+  var player2Name = $("input#player2Name").val();
+  var dieSelect = parseInt($("input:radio[name=dieType]:checked").val());
+  $(".playerPanel").slideToggle();
+  $("#startGame").slideToggle();
+  $(".p1Name").text(player1Name);
+  $(".p2Name").text(player2Name);
+  for (var i = 1; i <= dieSelect; i++) {
+    dieArray.push(i)
+  };
 
+})
 
 $("#roller1").click(function() {
   var result = roll();
   if (result === 1) {
     player1TurnScore.length = 0;
     player1Result.push(0);
-    $("#roller1").hide();
-    $("#hold1").hide();
-    $("#roller2").show();
+    $("#roller1").slideUp();
+    $("#hold1").slideUp();
+    $("#roller2").slideDown();
+    $(".p1TurnScore").text("Turn Over");
   } else {
     player1TurnScore.push(result);
-    $("#hold1").show();
-  }
-  alert(player1TurnScore);
+    $("#hold1").slideDown();
+    $(".p1TurnScore").text("Current turn: " + player1TurnScore);
+  };
 });
 
 $("#roller2").click(function() {
@@ -31,20 +46,21 @@ $("#roller2").click(function() {
   if (result === 1) {
     player2TurnScore.length = 0;
     player2Result.push(0);
-    $("#roller2").hide();
-    $("#hold2").hide();
-    $("#roller1").show();
+    $("#roller2").slideUp();
+    $("#hold2").slideUp();
+    $("#roller1").slideDown();
+    $(".p2TurnScore").text("Turn Over");
   } else {
     player2TurnScore.push(result);
-    $("#hold2").show();
+    $("#hold2").slideDown();
+    $(".p2TurnScore").text("Current turn: " + player2TurnScore);
   }
-  alert(player2TurnScore);
 });
 
 $("#hold1").click(function() {
-    $("#hold1").hide()
-    $("#roller1").hide()
-    $("#roller2").show()
+    $("#hold1").slideUp()
+    $("#roller1").slideUp()
+    $("#roller2").slideDown()
     var turnScore = player1TurnScore.reduce(function (x, y) {
     return x + y;
     });
@@ -53,13 +69,18 @@ $("#hold1").click(function() {
         return x + y;
       });
     player1TurnScore.length = 0;
-    $(".p1Score").text(player1Score);
+    $(".p1Score").text("Total score: " + player1Score);
+    if (player1Score >= 100) {
+      $(".playerPanel").slideUp();
+      $("#p1Win").slideDown();
+      $(".pyroRed").show();
+    }
 });
 
 $("#hold2").click(function() {
-    $("#hold2").hide()
-    $("#roller2").hide()
-    $("#roller1").show()
+    $("#hold2").slideUp()
+    $("#roller2").slideUp()
+    $("#roller1").slideDown()
     var turnScore = player2TurnScore.reduce(function (x, y) {
     return x + y;
     });
@@ -68,7 +89,12 @@ $("#hold2").click(function() {
         return x + y;
       });
     player2TurnScore.length = 0;
-    $(".p2Score").text(player2Score);
+    $(".p2Score").text("Total score: " + player2Score);
+    if (player2Score >= 100) {
+      $(".playerPanel").slideUp();
+      $("#p2Win").slideDown();
+      $(".pyroBlue").show();
+    }
 });
 
 
