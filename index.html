@@ -9,6 +9,15 @@
     <title>Pig Dice</title>
   </head>
   <body>
+    <h1 class="loader">
+      <span>P</span>
+      <span>I</span>
+      <span>G</span>
+      <span>D</span>
+      <span>I</span>
+      <span>C</span>
+      <span>E</span>
+    </h1>
     <div class="pyroRed">
       <div class="before"></div>
       <div class="after"></div>
@@ -20,35 +29,49 @@
     <div class="container">
       <div class="jumbotron">
         <img src="https://78.media.tumblr.com/fce95a2506703a0e008681413f500b8c/tumblr_otvwdlJj2v1tx6zqyo1_500.gif" alt="Piggy">
-        <h1>Pig Dice</h1>
-        <h2>First player to 100 wins!</h2>
-        <h3>If you roll a 1 your turn is over.</h3>
+        <h1>First player to 100 wins!</h1>
+        <h2>If you roll a 1 your turn is over.</h2>
       </div>
-      <div id="startGame">
-      <div class="radio">
-        <label>
-          <input type="radio" name="dieType" value=6 checked>
-          Play with a 6 sided die
-        </label>
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+      <div class="panel panel-info"id="startGame">
+        <div class="panel-heading">
+          <h2>Game options:</h2>
+        </div>
+
+
+
+        <div class="panel-body">
+          <div class="radio">
+            <label>
+              <input type="radio" name="dieType" value=6 checked>
+              Play with a 6 sided die
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="dieType" value=10>
+              Play with a 10 sided die
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="dieType" value=2>
+              Play binary pig die
+            </label>
+          </div>
+          <label for="player1Name">Player 1 Name</label>
+          <input id="player1Name" type="text" name="player1Name"><br>
+          <label for="player2Name">Player 2 Name</label>
+          <input id="player2Name" type="text" name="player2Name"><br>
+          <br><button id="start" class="btn btn-default" type="button" name="button">Start Game</button>
+        </div>
       </div>
-      <div class="radio">
-        <label>
-          <input type="radio" name="dieType" value=10>
-          Play with a 10 sided die
-        </label>
+      <div class="col-md-4">
       </div>
-      <div class="radio">
-        <label>
-          <input type="radio" name="dieType" value=2>
-          Play binary pig die
-        </label>
-      </div>
-      <label for="player1Name">Player 1 Name</label>
-      <input id="player1Name" type="text" name="player1Name"><br>
-      <label for="player2Name">Player 2 Name</label>
-      <input id="player2Name" type="text" name="player2Name"><br>
-      <br><button id="start" class="btn btn-default" type="button" name="button">Start Game</button>
-      </div>
+    </div>
       <div class="row">
         <div class="col-md-6">
           <div id="p1" class="panel panel-default playerPanel">
