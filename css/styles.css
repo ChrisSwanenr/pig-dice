@@ -100,7 +100,7 @@ body {
 }
 b
 .pyroRed > .before, .pyroRed > .after {
-  position: absolute;
+  position: static;
   width: 15px;
   height: 15px;
   border-radius: 50%;
