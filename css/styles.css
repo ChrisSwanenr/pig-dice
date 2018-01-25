@@ -1,18 +1,41 @@
 #hold1, #hold2, #roller2, #p1Win, #p2Win, .playerPanel, .pyroBlue, .pyroRed {
- display: none;
+display: none;
 }
 
+.panel-body {
+  font-family: 'Oswald', sans-serif;
+}
 
 .jumbotron, #p1Win, #p2Win{
   text-align: center;
+  font-family: 'Shrikhand', cursive;
+
 
 }
 .jumbotron {
   background-color: inherit;
-}
+  font-family: 'Shrikhand', cursive;
 
+}
+.loader {
+  position: relative;
+  top: -100px;
+
+}
 h2 {
   text-align: center;
+}
+
+#startGame .panel-heading {
+  background-image: linear-gradient(to right, #AAF5FF, #FFE0F6);
+}
+.panel-heading{
+  font-family: 'Shrikhand', cursive;
+}
+
+button {
+  font-family: 'Shrikhand', cursive;
+
 }
 
 #p1 .panel-heading {
@@ -39,6 +62,7 @@ img {
   object-fit: cover;
   width: 350px;
   height: 350px;
+  border: 7px solid white;
 }
 #startGame {
   display: block;
@@ -276,7 +300,7 @@ body {
 h1.loader {
   text-align: center;
   text-transform: uppercase;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Viga', sans-serif;
   font-size: 4.6875em;
   color: transparent;
   letter-spacing: 0.01em;
@@ -284,7 +308,7 @@ h1.loader {
 
 .loader span {
   text-shadow:
-    0 0 2px rgba(204, 208, 212,0.9),
+    0 0 2px black,
     0 15px 25px rgba(0, 0, 0, 0.3),
     0 -2px 3px rgba(0, 0, 0, 0.1),
     0 -5px 10px rgba(255, 255, 255, 0.5),

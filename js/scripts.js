@@ -17,8 +17,19 @@ $("#start").click(function() {
   var dieSelect = parseInt($("input:radio[name=dieType]:checked").val());
   $(".playerPanel").slideToggle();
   $("#startGame").slideToggle();
-  $(".p1Name").text(player1Name);
-  $(".p2Name").text(player2Name);
+
+  if (player1Name == "") {
+  $(".p1Name").text("Player 1");
+  } else {
+    $(".p1Name").text(player1Name);
+  };
+
+  if (player2Name == "") {
+  $(".p2Name").text("Player 2");
+  } else {
+    $(".p2Name").text(player2Name);
+  };
+
   for (var i = 1; i <= dieSelect; i++) {
     dieArray.push(i)
   };
@@ -96,6 +107,22 @@ $("#hold2").click(function() {
       $(".pyroBlue").show();
     }
 });
+
+$(".restart").click(function() {
+  player1Result.length = 0
+  player2Result.length = 0
+  $("#startGame").slideDown();
+  $("#p2Win").slideUp();
+  $("#p1Win").slideUp();
+  $(".pyroBlue").hide();
+  $(".pyroRed").hide();
+  $(".p2Score").text("");
+  $(".p1Score").text("");
+  $(".p1TurnScore").text("");
+  $(".p2TurnScore").text("");
+
+
+})
 
 
 
