@@ -96,7 +96,7 @@ body {
   margin: 0;
   padding: 0;
   background: #000;
-  overflow: hidden;
+  overflow: scroll;
 }
 b
 .pyroRed > .before, .pyroRed > .after {
